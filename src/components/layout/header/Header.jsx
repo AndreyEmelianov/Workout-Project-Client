@@ -4,7 +4,7 @@ import Hamburger from '../hamburger/Hamburger';
 import styles from './Header.module.scss';
 import { FiArrowLeft } from 'react-icons/fi';
 
-const Header = () => {
+const Header = ({ backLink }) => {
 	const { isAuth } = useAuth();
 
 	return (

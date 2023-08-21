@@ -1,11 +1,19 @@
 import Header from './header/Header';
+import cn from 'clsx';
 
-const Layout = ({ children }) => {
+import styles from './Layout.module.scss';
+
+const Layout = ({ children, bgImage, heading = '', backLink = '/' }) => {
 	return (
-		<div>
-			<Header />
+		<section
+			className={cn(styles.wrapper, {
+				[styles.otherPage]: !!heading
+			})}
+			style={{ backgroundImage: `url(${bgImage})` }}
+		>
+			<Header backLink={backLink} />
 			{children}
-		</div>
+		</section>
 	);
 };
 
