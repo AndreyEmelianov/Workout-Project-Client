@@ -12,7 +12,10 @@ const Layout = ({ children, bgImage, heading = '', backLink = '/' }) => {
 			style={{ backgroundImage: `url(${bgImage})` }}
 		>
 			<Header backLink={backLink} />
-			{children}
+
+			{heading && <h1 className={styles.heading}>{heading}</h1>}
+
+			{children && <div>{children}</div>}
 		</section>
 	);
 };
