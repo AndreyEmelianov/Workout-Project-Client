@@ -1,4 +1,5 @@
 import Auth from '../components/screens/auth/Auth';
+import ExerciseLog from '../components/screens/exercise-log/ExerciseLog';
 import Home from '../components/screens/home/Home';
 import NewExercise from '../components/screens/new-exercise/NewExercise';
 import NewWorkout from '../components/screens/new-workout/NewWorkout';
@@ -40,6 +41,11 @@ export const routes = [
 	{
 		path: '/workouts',
 		component: ListWorkouts,
+		isAuth: true
+	},
+	{
+		path: '/exercise/:id',
+		component: ExerciseLog,
 		isAuth: true
 	}
 ];
