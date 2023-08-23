@@ -20,7 +20,10 @@ export const useNewWorkout = () => {
 		body => WorkoutService.create(body),
 		{
 			onSuccess: () => {
-				reset();
+				reset({
+					name: '',
+					exerciseIds: []
+				});
 			}
 		}
 	);
