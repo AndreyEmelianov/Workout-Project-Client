@@ -26,7 +26,10 @@ export const useNewWorkout = () => {
 	);
 
 	const onSubmit = data => {
-		mutate(data);
+		mutate({
+			name: data.name,
+			exerciseIds: data.exerciseIds.map(exercise => exercise.value)
+		});
 	};
 
 	return useMemo(

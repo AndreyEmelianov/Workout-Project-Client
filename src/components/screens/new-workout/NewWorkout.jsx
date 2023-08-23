@@ -1,14 +1,12 @@
-import { Controller } from 'react-hook-form';
-import cn from 'clsx';
-
 import Layout from '../../layout/Layout';
 import Loader from '../../ui/loader/Loader';
 import Button from '../../ui/button/Button';
 import Alert from '../../ui/alert/Alert';
 
-import styles from './NewWorkout.module.scss';
 import Field from '../../ui/field/Field';
 import { useNewWorkout } from './useNewWorkout';
+import { Link } from 'react-router-dom';
+import SelectExercises from './SelectExercises';
 
 const NewWorkout = () => {
 	const {
@@ -43,6 +41,12 @@ const NewWorkout = () => {
 						type='text'
 						placeholder='Enter name'
 					/>
+
+					<Link to='/new-exercise' className='dark-line'>
+						Add new exercise
+					</Link>
+
+					<SelectExercises control={control} />
 
 					{errors?.iconPath && (
 						<div className='error'>{errors?.iconPath?.message}</div>
