@@ -1,4 +1,3 @@
-import Layout from '../../layout/Layout';
 import cn from 'clsx';
 
 import { useProfile } from './useProfile';
