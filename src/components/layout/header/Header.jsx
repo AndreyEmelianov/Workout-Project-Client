@@ -6,7 +6,7 @@ import { IoMdArrowBack } from 'react-icons/io';
 import { SlUser } from 'react-icons/sl';
 import { useAuth } from '../../../hooks/useAuth';
 
-const Header = ({ backLink = '' }) => {
+const Header = ({ backLink = '/' }) => {
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
 

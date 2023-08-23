@@ -7,6 +7,7 @@ import stylesLayout from '../../layout/Layout.module.scss';
 import styles from './Profile.module.scss';
 import Header from '../../layout/header/Header';
 import Loader from '../../ui/loader/Loader';
+import Statistics from './statistics/Statistics';
 
 const Profile = () => {
 	const { data, isLoading } = useProfile();
@@ -36,6 +37,7 @@ const Profile = () => {
 						</>
 					)}
 				</div>
+				<Statistics />
 			</div>
 
 			<div
@@ -44,7 +46,7 @@ const Profile = () => {
 			>
 				<div className={styles.before_after}>
 					{data?.images?.map((image, index) => (
-						<div key={index}>
+						<div key={image}>
 							<div className={styles.heading}>
 								{index === 1 ? 'After' : 'Before'}
 							</div>
