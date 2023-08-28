@@ -11,9 +11,15 @@ import ExerciseError from './ExerciseError';
 import styles from './ExerciseLog.module.scss';
 import TableHeader from './table/TableHeader';
 import TableRow from './table/TableRow';
+import { useUpdateLogTime } from './hooks/useUpdateLogTime';
+import { useCompleteLog } from './hooks/useCompleteLog';
 
 const ExerciseLog = () => {
 	const { exerciseLog, isLoading, isSuccess } = useExerciseLog();
+
+	const { errorChange, updateTime } = useUpdateLogTime();
+
+	const { completeLog, errorCompleted } = useCompleteLog();
 
 	return (
 		<>
@@ -22,8 +28,7 @@ const ExerciseLog = () => {
 				className='wrapper-inner-page'
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
-				{/* <ExerciseError errors={[errorChange,
-errorCompleted]} /> */}
+				<ExerciseError errors={[errorChange, errorCompleted]} />
 				{isLoading ? (
 					<Loader />
 				) : (
