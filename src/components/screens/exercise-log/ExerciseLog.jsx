@@ -2,27 +2,27 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import cn from 'clsx';
 
-import ExerciseLogService from '../../../services/exercise/exercise-log.service';
+import { useExerciseLog } from './hooks/useExerciseLog';
+import HeaderExerciseLog from './HeaderExerciseLog';
+import Loader from '../../ui/loader/Loader';
+import Alert from '../../ui/alert/Alert';
+import ExerciseError from './ExerciseError';
 
 import styles from './ExerciseLog.module.scss';
-import Header from '../../layout/header/Header';
-import HeaderExerciseLog from './HeaderExerciseLog';
 
 const ExerciseLog = () => {
-	const { id } = useParams();
-
-	const {
-		data: exerciseLog,
-		isSuccess,
-		refetch,
-		isLoading
-	} = useQuery(['get exercise log', id], () => ExerciseLogService.getById(id), {
-		select: ({ data }) => data
-	});
+	const { exerciseLog, isLoading, isSuccess } = useExerciseLog();
 
 	return (
 		<>
 			<HeaderExerciseLog exerciseLog={exerciseLog} isSuccess={isSuccess} />
+			<div
+				className='wrapper-inner-page'
+				style={{ paddingLeft: 0, paddingRight: 0 }}
+			>
+				{/* <ExerciseError errors={[errorChange,
+errorCompleted]} /> */}
+			</div>
 		</>
 	);
 };
