@@ -15,9 +15,15 @@ import { useUpdateLogTime } from './hooks/useUpdateLogTime';
 import { useCompleteLog } from './hooks/useCompleteLog';
 
 const ExerciseLog = () => {
-	const { exerciseLog, isLoading, isSuccess } = useExerciseLog();
-
-	const { errorChange, updateTime } = useUpdateLogTime();
+	const {
+		exerciseLog,
+		isLoading,
+		isSuccess,
+		errorChange,
+		getState,
+		onChangeState,
+		toggleTime
+	} = useExerciseLog();
 
 	const { completeLog, errorCompleted } = useCompleteLog();
 
@@ -35,7 +41,13 @@ const ExerciseLog = () => {
 					<div className={styles.wrapper}>
 						<TableHeader />
 						{exerciseLog?.times.map(item => (
-							<TableRow item={item} key={item.id} />
+							<TableRow
+								item={item}
+								key={item.id}
+								getState={getState}
+								toggleTime={toggleTime}
+								onChangeState={onChangeState}
+							/>
 						))}
 					</div>
 				)}

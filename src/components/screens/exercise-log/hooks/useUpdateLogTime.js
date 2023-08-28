@@ -9,7 +9,7 @@ export const useUpdateLogTime = () => {
 
 	const { mutate, error: errorChange } = useMutation(
 		['update log time'],
-		(timeId, body) => ExerciseLogService.updateTime(timeId, body),
+		({ timeId, body }) => ExerciseLogService.updateTime(timeId, body),
 		{
 			onSuccess: () => {
 				queryClient.invalidateQueries(['get exercise log', id]);
