@@ -21,6 +21,7 @@ const Header = ({ backLink = '/' }) => {
 							onClick={() => {
 								navigate('/profile');
 							}}
+							aria-label='Go to profile'
 						>
 							<SlUser fill='#fff' fontSize={25} />
 						</button>
@@ -29,6 +30,7 @@ const Header = ({ backLink = '/' }) => {
 							onClick={() => {
 								navigate(isAuth ? backLink : '/auth');
 							}}
+							aria-label='Go back'
 						>
 							<IoMdArrowBack fill='#fff' fontSize={28} />
 						</button>
