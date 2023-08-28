@@ -1,11 +1,9 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import ExerciseLogService from '../../../../services/exercise/exercise-log.service';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export const useCompleteLog = () => {
 	const { id } = useParams();
-
-	const queryClient = useQueryClient();
 
 	const navigate = useNavigate();
 

@@ -19,13 +19,11 @@ const ExerciseLog = () => {
 		exerciseLog,
 		isLoading,
 		isSuccess,
-		errorChange,
+		error,
 		getState,
 		onChangeState,
 		toggleTime
 	} = useExerciseLog();
-
-	const { completeLog, errorCompleted } = useCompleteLog();
 
 	return (
 		<>
@@ -34,7 +32,7 @@ const ExerciseLog = () => {
 				className='wrapper-inner-page'
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
-				<ExerciseError errors={[errorChange, errorCompleted]} />
+				<ExerciseError errors={[error]} />
 				{isLoading ? (
 					<Loader />
 				) : (
